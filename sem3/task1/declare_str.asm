@@ -12,4 +12,4 @@
 %endmacro               ; end of the macro
 
 section .data
-    str: allocate_str "hello", "another", "world"
+    str: declare_str "hello", "another", "world"
