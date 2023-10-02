@@ -2,7 +2,7 @@
 ; разделенную запятыми. Например при передаче аргументов hello, another и world в результате 
 ; в памяти была выделена строка hello, another, world.
 
-%macro declare_str 1-* ; define macro, take at least 1 arg (can be more)
+%macro declare_str 1-*  ; define macro, take at least 1 arg (can be more)
     %rep %0             ; repeat following block (number of args passed) times
         db %1           ; declare byte (db) - init it with first arg
         db ", "         ; declare another byte - init it with comma and whitespace (to separate strings)
