@@ -6,14 +6,11 @@ section .text
 global _start
 
 exit:
-    mov  rax, 60
-    xor  rdi, rdi          
+    mov  rax, 60       
     syscall
 
 string_length:
-  mov rax, 0
-    .loop:
-      xor rax, rax
+    xor rax, rax
     .count:
       cmp byte [rdi+rax], 0
       je .end
@@ -33,7 +30,6 @@ print_string:
 
 parse_uint:
   xor rax, rax
-  mov rax, 0
   mov rcx, 0
   mov rdx, 0
 
@@ -48,7 +44,6 @@ parse_uint:
   add rax, rdx
   inc rcx
   jmp .loop
-
   ret
 
 .out:
