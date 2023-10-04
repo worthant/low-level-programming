@@ -9,7 +9,7 @@ JAVA_FILES := AreaChecker.java ControllerServlet.java ErrorUtil.java Coordinates
 CLASS_FILES := $(JAVA_FILES:%.java=$(BIN_DIR)/%.class)
 
 # Цель по умолчанию. В данном случае сборка всех .class файлов
-all: $(CLASS_FILES)
+all: $(BIN_DIR) $(CLASS_FILES)
 
 # Как превратить .java в .class
 $(BIN_DIR)/%.class: $(SRC_DIR)/%.java
