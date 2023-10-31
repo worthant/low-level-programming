@@ -1,0 +1,1 @@
+gcc - o syntax syntax.c -std=c17 -pedantic -Wall
