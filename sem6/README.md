@@ -1,6 +1,6 @@
 # Low-level-programming seminar №6
 
-### -> Все задания сделаны с `cmake` и `sh-script` - заработает в любом IDE на любой системе <-
+### -> Все задания сделаны с `cmake` и `makefile/sh-script` - заработает в любом IDE на любой системе <-
 
 > **Протестированные системы:**
 > - `Windows 11` + `Visual Studio 2022`
