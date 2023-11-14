@@ -3,3 +3,4 @@
 ./.idea
 ./.idea/*
 **/x64/
+**/Debug/
