@@ -23,5 +23,5 @@ $(BIN_DIR):
 clean:
 	rm -rf $(BIN_DIR)
 
-# .PHONY указывает, что clean и all — не файлы, а команды для make
+# .PHONY указывает, что clean и all — не файлы, а команды для makefile
 .PHONY: all clean

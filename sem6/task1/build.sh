@@ -1,0 +1,1 @@
+gcc -std=c17 -pedantic -Wall -Werror heap-0.c -o heap-0
