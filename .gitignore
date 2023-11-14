@@ -4,3 +4,10 @@
 ./.idea/*
 **/x64/
 **/Debug/
+**/cmake-build-debug/
+**/.vs/*
+**/.vs/
+./.vs/*
+./.vs
+.vs
+.vs/*

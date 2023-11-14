@@ -351,7 +351,7 @@ void test_partial_free() {
 	heap_debug_info(&global_heap, stdout);
 
 	struct block_id bid = block_allocate(&global_heap, HEAP_BLOCKS);
-	printf("After allocating all blocks:\n");
+	printf("After allocating all blocks got the bid with the %zu:\n", bid.value);
 	heap_debug_info(&global_heap, stdout);
 
 	// Free a few blocks in the middle
