@@ -141,7 +141,6 @@ bool block_is_free(struct block_id bid) {
  *         block ID if the allocation fails.
  */
 struct block_id block_allocate(struct heap* heap, size_t size) {
-	// Iterate over blocks looking for a suitable starting point
 	for (size_t i = 0; i < HEAP_BLOCKS; i++) {
 		// Check if there's enough room
 		if (i + size <= HEAP_BLOCKS) {
@@ -347,7 +346,7 @@ void test_allocation_exceeding_heap() {
 
 
 void test_partial_free() {
-	printf("\nTest 5: Allocating All Blocks and Freeing in the Middle\n");
+	printf("\nTest 5: Allocating All Blocks and Corrupting them by freeing in the Middle\n");
 	heap_debug_info(&global_heap, stdout);
 
 	struct block_id bid = block_allocate(&global_heap, HEAP_BLOCKS);
@@ -357,7 +356,12 @@ void test_partial_free() {
 	// Free a few blocks in the middle
 	size_t middle = HEAP_BLOCKS / 2;
 	global_heap.status[middle] = BLK_FREE; // Simulate freeing a block in the middle
-	printf("After freeing a block in the middle:\n");
+    printf("Manually corrupting the block in the middle:\n");
+    heap_debug_info(&global_heap, stdout);
+    size_t start = 0;
+    struct block_id mid_bid = block_id_new(start, &global_heap);
+    block_free(mid_bid);
+	printf("After using freeing the heap:\n");
 	heap_debug_info(&global_heap, stdout);
 }
 
@@ -369,7 +373,7 @@ int main() {
 	test_single_block_allocation_and_free();
 	test_multiple_blocks_allocation();
 	test_allocation_exceeding_heap();
-	test_partial_free();
+	test_partial_free(); // don't do anything if allocate in the middle of the block
 
 	return 0;
 }
