@@ -7,4 +7,5 @@ set(CMAKE_C_STANDARD 17)
 set(CMAKE_C_STANDARD_REQUIRED True)
 
 add_executable(task1 task1.c)
+add_executable(task3 task3.c)
 
