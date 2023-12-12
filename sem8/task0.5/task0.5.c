@@ -5,24 +5,24 @@
 pthread_mutex_t lock;
 
 void bad_print(char *s) {
-    pthread_mutex_lock(&lock);
     for (; *s != '\0'; s++) {
         fprintf(stdout, "%c", *s);
         fflush(stdout);
         usleep(100);
     }
-    pthread_mutex_unlock(&lock);
 }
 
 void *my_thread(void *arg) {
     for (int i = 0; i < 10; i++) {
+        pthread_mutex_lock(&lock);
         bad_print((char *) arg);
+        pthread_mutex_unlock(&lock);
         sleep(1);
     }
     return NULL;
 }
 
-int main(void) {
+int main() {
     pthread_t t1, t2;
     pthread_mutex_init(&lock, NULL);
     pthread_create(&t1, NULL, my_thread, "life is..\n");
